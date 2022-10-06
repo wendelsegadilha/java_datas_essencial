@@ -1,3 +1,4 @@
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -33,6 +34,14 @@ public class AppSimpleDateFormat {
         SimpleDateFormat sdf = new SimpleDateFormat(padrao);
         String dataFormatada = sdf.format(new Date());
         System.out.println(dataFormatada); //Santa Inês - MA, 05 de outubro de 2022
+
+        //fazendo parse de datas string
+        try {
+            Date parse = sdf.parse("Santa Inês - MA, dd de MMMM de yyyy");
+            System.out.println(parse);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 }
